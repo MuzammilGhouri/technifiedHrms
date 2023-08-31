@@ -1,0 +1,125 @@
+.left {
+    width: 65%;
+    position: relative;
+    background: url() 0 0 / 100% 100%;
+}
+.logo {
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    z-index: 9;
+    width: 395px;
+}
+aside {
+    min-height: 100%;
+    float: left;
+}
+.logo-main {
+    padding: 0 0 25px 0;
+    width: 269px;
+}
+.logo p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+}
+.user-graphic-main {
+    position: absolute;
+    left: 15%;
+    top: 33%;
+    margin: auto;
+    z-index: 100;
+    width: 500px;
+    height: 400px;
+}
+
+.user-graphic-main img {
+    width: 100%;
+}
+
+.globe-main {
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+}
+
+
+html, body, .wrapper {
+    height: 100%;
+}
+.right {
+    background-image: url('../../../../img/login-top-circle-lap.jpg'), url('../../../../img/login-bottom-circle-lap.jpg');
+    background-position: top center, bottom -10% right -30%;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 100% auto, auto;
+}
+.right {
+    width: 35%;
+    position: relative;
+}
+.lock-icon {
+    margin: 50px auto;
+    display: table;
+    width: 120px;
+    height: 120px;
+}
+.form-wrapper {
+    position: absolute;
+    top: 29%;
+    width: 90%;
+    padding: 0 15px;
+    right: 0;
+    left: 0;
+    padding: 0 30px;
+    margin: 0 auto;
+}
+h2 {
+    font-weight: 700;
+    color: #000000;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+input {
+    border: 1px solid #e3e3e3;
+    color: #484848;
+    border-radius: 3px;
+    width: 100%;
+    font-size: 14px;
+    padding: 10px 10px 10px 50px;
+    margin-bottom: 20px;
+}
+footer {
+    position: absolute;
+    bottom: 50px;
+    width: 90%;
+    right: 0;
+    left: 0;
+    padding: 0 30px;
+    margin: 0 auto;
+    font-size: 11px;
+    font-weight: 400;
+}
+.lock-icon img {
+    width: 100%;
+}
+input[type="submit"] {
+    width: auto;
+    float: right;
+    font-size: 16px;
+    font-weight: 400;
+    background:#e93f1c;
+    color: #fff;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 0px;
+    outline: none;
+}
+input.password {
+    background: url('../../../../img/password-icon.png') no-repeat left 15px center;
+}
+input.user {
+    background: url('../../../../img/user-icon.png') no-repeat left 15px center;
+}

@@ -1,0 +1,44 @@
+.att-search{
+    display: flex;
+}
+
+.mob_login{
+    display: none !important;
+}
+@media only screen and (max-width: 600px){
+    .main-content.side-content {
+        margin-top: 150px;
+    }
+    
+    /*Login Page CSS*/
+    
+    aside.left {
+        display: none;
+    }
+    
+    .right {
+        display: none;
+    }
+    
+    .att-search{
+        display: block;
+    }
+    
+    .mob-btn {
+        width: 100%;
+    }
+    
+    .mob_login{
+        display: block !important;
+        height: 100vh;
+    }
+    
+    .login_img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 300px;
+    }
+        
+    
+}
