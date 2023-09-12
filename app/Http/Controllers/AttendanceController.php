@@ -16,6 +16,7 @@
   use App\notification\UserAttendance;
   use App\Models\Employee;
   use App\EmployeeLeaves;
+  use App\User;
 
   class AttendanceController extends Controller
   {
@@ -249,14 +250,14 @@
                 ->orWhere('attendance_managers.day', 'LIKE', "%$keyword%")
                 ->paginate($perPage);
         }else {
-            if(Auth::user()->isHR()){
+            if(Auth::user()->isHR() || Auth::user()->isCEO()){
                 
                 $attendances = AttendanceManager::all();
             }else{
                 $attendances = AttendanceManager::where('user_id',Auth::user()->id)->get();
             }
         }
-        if(Auth::user()->isHR()){
+        if(Auth::user()->isHR() || Auth::user()->isCEO()){
             $attendances = AttendanceManager::all();
             $employees = DB::table('employees')->get();
         }else{
@@ -278,6 +279,12 @@
       \Session::flash('flash_message1', 'File successfully Deleted!');
       return redirect()->back();
     }
+    
+    public function employeeAttend(){
+        
+        $user = User::all();
+        return view('hrms.attendance.employeeAttendance',compact('user'));
+    }
 
     /**
      * @param Request $request
@@ -287,10 +294,16 @@
     {   
         $name = $request->employee;
         $daterange = $request->daterange;
-        $employees = DB::table('employees')->get();
+        if(Auth::user()->isHr() || Auth::user()->isCEO()){
+            $employees = DB::table('employees')->get();
+        }else{
+            $employees = DB::table('employees')->where('user_id',Auth::user()->id)->get();
+        }
         
       if($request->button == 'Search'){
+         
           $attendances = AttendanceManager::getFilterdSearchResults($request->all());
+           
           return view('hrms.attendance.show_attendance_sheet_details', compact('attendances','employees', 'name', 'daterange'));
       }
     }

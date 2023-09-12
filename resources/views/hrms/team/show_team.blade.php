@@ -33,7 +33,9 @@
                                 <th>Team Name</th>
                                 <th>Manager</th>
                                 <th>Team Leader</th>
+                                @if(!(\Auth::user()->isCEO()))
                                 <th>Actions</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -44,6 +46,7 @@
                                 <td>{{$team->name}}</td>
                                 <td>{{$team->manager->name}}</td>
                                 <td>{{$team->leader->name}}</td>
+                                @if(!(\Auth::user()->isCEO()))
                                 <td>
                                     <div class="btn-group text-right">
                                         <button type="button" class="btn btn-success br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" > Action
@@ -59,6 +62,7 @@
                                         </div>
                                     </div>
                                 </td>
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>

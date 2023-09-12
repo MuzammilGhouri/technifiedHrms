@@ -32,7 +32,9 @@
                                 <th>Team Name</th>
                                 <th>Manager</th>
                                 <th>Team Leader</th>
+                                <?php if(!(\Auth::user()->isCEO())): ?>
                                 <th>Actions</th>
+                                <?php endif; ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,6 +45,7 @@
                                 <td><?php echo e($team->name); ?></td>
                                 <td><?php echo e($team->manager->name); ?></td>
                                 <td><?php echo e($team->leader->name); ?></td>
+                                <?php if(!(\Auth::user()->isCEO())): ?>
                                 <td>
                                     <div class="btn-group text-right">
                                         <button type="button" class="btn btn-success br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" > Action
@@ -58,6 +61,7 @@
                                         </div>
                                     </div>
                                 </td>
+                                <?php endif; ?>
                             </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>

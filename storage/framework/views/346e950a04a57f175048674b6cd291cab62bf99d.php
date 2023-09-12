@@ -71,21 +71,11 @@
     <div class="col-lg-12">
         <div class="card custom-card">
             <div class="card-body">
-                <?php if(Session::has('flash_message')): ?>
-                <div class="alert alert-success">
-                    <?php echo e(Session::get('flash_message')); ?>
-
-                </div>
-                <?php endif; ?>
+               
                 <div>
                     <h6 class="main-content-label mb-3">Roles Lists</h6>
                 </div>
-                <?php if(Session::has('flash_message')): ?>
-                    <div class="alert alert-success">
-                        <?php echo e(Session::get('flash_message')); ?>
-
-                    </div>
-                <?php endif; ?>
+                
                 <div class="table-responsive">
                     <table class="table table-bordered text-nowrap border-bottom mb-0 border dataTable no-footer" id="recentorders" role="grid" aria-describedby="recentorders_info">
                         <thead>

@@ -56,15 +56,18 @@
                                 <td>{{$emp->name}}</td>
                                 <td>{{$emp->email}}</td>
                                 <td>
-                                    <input data-id="{{$emp->employee['user_id']}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $emp->employee['status'] ? 'checked' : '' }}>
+                                    <input data-id="{{$emp->employee['user_id']}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $emp->employee['status'] ? 'checked' : '' }} {{ (Auth::user()->isCEO()) ? 'disabled' : '' }}          >
                                 </td>
                                 <!--<td>{{convertStatusBack($emp->employee['status'])}}</td>-->
                                 <td>{{isset($emp->role->role->name)?$emp->role->role->name:''}}</td>
                                 <td>{{$emp->employee['designation']}}</td>
                                 <td>
-                                    <a href="/edit-emp/{{$emp->id}}" class="btn ripple btn-primary btn-sm">Edit</a>
+                                    
                                     <a href="/view-emp/{{$emp->id}}" class="btn ripple btn-info btn-sm">View</a>
+                                    @if(Auth::user()->isHR())
+                                    <a href="/edit-emp/{{$emp->id}}" class="btn ripple btn-primary btn-sm">Edit</a>
                                     <a href="#" data-id="{{$emp->id}}" class="btn ripple btn-danger delete-emp btn-sm">Delete</a>
+                                    @endif
                                     <!--/delete-emp/{{$emp->id}}-->
                                 </td>
                             </tr>
@@ -229,6 +232,8 @@
       "responsive": true,
     });
   });
+  
+  
 </script>
 
 

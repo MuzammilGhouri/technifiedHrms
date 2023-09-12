@@ -6,7 +6,7 @@
 		<tbody style="max-width:600px;width:600px">
 			<tr>
 				<td style="background:rgb(255,255,255);padding:1em 2.5em;text-align:center">
-					<h1 style="font-family:&quot;Playfair Display&quot;,serif;color:rgb(0,0,0);margin:0px"><a href="https://colorlib.com/etc/email-template/1/index.html#" style="color:rgb(0,0,0);text-decoration-line:none;font-size:20px;text-transform:uppercase;font-family:Montserrat,sans-serif" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://colorlib.com/etc/email-template/1/index.html%23&amp;source=gmail&amp;ust=1693416771415000&amp;usg=AOvVaw0dd2TAO3sNeS93PyGq4uyE"><img src="https://ci3.googleusercontent.com/proxy/F0KJBQYr0Cp0UUf90DsZmfnbldskb7hnCRszSg6tTPn3d4C8Eyuz_InZogiDcg_srPW2O-q2XH9-yPgPZdBb7fkjhKbXJw=s0-d-e1-ft#https://hrms.technifiedlabs.com/new/img/logonew.png" alt="" style="width:200px;max-width:600px;height:auto;margin:auto;display:block" class="CToWUd" data-bit="iit"></a></h1></td>
+					<h1 style="font-family:&quot;Playfair Display&quot;,serif;color:rgb(0,0,0);margin:0px"><a href="https://hrms.technifiedlabs.com/" style="color:rgb(0,0,0);text-decoration-line:none;font-size:20px;text-transform:uppercase;font-family:Montserrat,sans-serif" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://colorlib.com/etc/email-template/1/index.html%23&amp;source=gmail&amp;ust=1693416771415000&amp;usg=AOvVaw0dd2TAO3sNeS93PyGq4uyE"><img src="https://ci3.googleusercontent.com/proxy/F0KJBQYr0Cp0UUf90DsZmfnbldskb7hnCRszSg6tTPn3d4C8Eyuz_InZogiDcg_srPW2O-q2XH9-yPgPZdBb7fkjhKbXJw=s0-d-e1-ft#https://hrms.technifiedlabs.com/new/img/logonew.png" alt="" style="width:200px;max-width:600px;height:auto;margin:auto;display:block" class="CToWUd" data-bit="iit"></a></h1></td>
 			</tr>
 			<tr>
 				<td style="background:rgb(255,255,255)">
@@ -52,7 +52,7 @@
 											</tr>
 											<tr colspan="2">
 												<td colspan="2" style="padding:10px 10px 0px;text-align:center">
-													<p><a href="https://hrms.technifiedlabs.com/" style="color:rgb(255,255,255);border:none;display:inline-flex;font-family:&quot;Google Sans&quot;,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;font-size:0.875rem;border-radius:4px;box-sizing:border-box;height:36px;min-width:80px;padding: 8px 15px;text-transform: uppercase;outline:none;text-decoration-line:none;background:rgb(244,84,23)" target="_blank">Login Here</a></p>
+													<p style="background: #f45417;"><a href="https://hrms.technifiedlabs.com/" style="color:rgb(255,255,255);border:none;display:inline-flex;font-family:&quot;Google Sans&quot;,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;font-size:0.875rem;border-radius:4px;box-sizing:border-box;height:36px;min-width:80px;padding: 8px 15px;text-transform: uppercase;outline:none;text-decoration-line:none;background:rgb(244,84,23)" target="_blank">Login Here</a></p>
 												</td>
 											</tr>
 										</tbody>

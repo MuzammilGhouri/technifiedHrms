@@ -95,7 +95,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="designation" class="form-label tx-semibold">Designation</label>
-                                                <input type="text" name="designation" id="designation" class="form-control" placeholder="{{ $details->user->role->role->name }}" value="{{ $details->user->role->role->name }}" readonly>
+                                                <input type="text" name="designation" id="designation" class="form-control" placeholder="{{ $details->designation }}" value="{{ $details->designation }}" readonly>
                                             </div>
                                             <div class="form-group">
                                                 <label for="date_of_joining" class="form-label tx-semibold">Date Joined</label>
@@ -188,10 +188,21 @@
                                                                 <label for="date_of_joining" class="form-label tx-semibold">Start Date</label>
                                                                 <input type="date" name="job_date_of_joining[]" id="job_date_of_joining" class="form-control" placeholder="" value="{{$val->job_date_of_joining}}" readonly>
                                                             </div>
+                                                            @if($val->job_date_of_confirmation != "0000-00-00")
                                                             <div class="form-group col-md-6">
-                                                                <label for="date_of_confirmation" class="form-label tx-semibold">Date Confirmed</label>
+                                                                <label for="date_of_confirmation" class="form-label tx-semibold">End Date</label>
                                                                 <input type="date" name="job_date_of_confirmation[]" id="job_date_of_confirmation" class="form-control" placeholder="" value="{{$val->job_date_of_confirmation}}" readonly>
                                                             </div>
+                                                            @else
+                                                            <div class="form-group col-md-4">
+                                                            <div class="form-check">
+                                                              <input class="form-check-input currentWork" type="checkbox" name="currentlyWork" value="present" id="flexCheckDefault" checked>
+                                                              <label class="form-check-label" for="flexCheckDefault">
+                                                                I am Currently Working In
+                                                              </label>
+                                                            </div>
+                                                            </div>
+                                                            @endif
                                                         </div>
                                                         <!--<div class="form-group d-flex justify-content-end">-->
                                                         <!--    <button type="button"  class="btn btn-danger">Delete</button>-->

@@ -42,7 +42,7 @@
                         <tbody>
                             <?php $i =0;?>
                             <?php $__currentLoopData = $ticket; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <tr style="background: <?php echo e(now()->subDay()->gte($value->created_at) ? '#ff000070' : ''); ?>; color:  <?php echo e(now()->subDay()->gte($value->created_at) ? '#fff' : ''); ?>;">
+                            <tr style="background: <?php if($value->status == 1): ?> #05ae0470 <?php elseif(now()->subDay()->gte($value->created_at)): ?> #ff000070 <?php endif; ?> ; color:  <?php echo e(now()->subDay()->gte($value->created_at) ? '#fff' : ''); ?>;">
                                 <td scope="row"><?php echo e($i+=1); ?></td>
                                 <td><?php echo e($value->title); ?></td>
                                 <td><?php echo e($value->department->name); ?></td>

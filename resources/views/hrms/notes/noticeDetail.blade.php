@@ -44,16 +44,8 @@
             											</div>
             										</div>
             										<div class="card-body">
-            											<p class="mg-t-0">{{$notice->name}}</p>
-            											<div class="row row-sm">
-            												<ul id="lightgallery" class="list-unstyled row mb-0 ps-2" lg-uid="lg0">
-            													<li class="col-xs-12 col-sm-12 col-md-12 col-xl-12 mb-4"  data-responsive="https://laravel8.spruko.com/dashplex/build/assets/img/media/blog3.jpg" data-src="https://laravel8.spruko.com/dashplex/build/assets/img/media/blog3.jpg" data-sub-html="<h4>Gallery Image 1</h4><p> Many desktop publishing packages and web page editors now use Lorem Ipsum</p>" lg-event-uid="&amp;1">
-            														<a href="{{asset($notice->image)}}" data-fancybox="group" data-caption="{{$notice->name}}" class="wd-100p"> 
-            														    <img class="img-responsive rounded-6" width="100%" src="{{asset($notice->image)}}" alt="Thumb-1"> 
-            														</a>
-            													</li>
-            												</ul>
-            											</div>
+            										    <h4 class="mg-t-0">{{$notice->name}}</h4>
+            											{!!$notice->detail!!}
             										</div>
             									</div>
             								    

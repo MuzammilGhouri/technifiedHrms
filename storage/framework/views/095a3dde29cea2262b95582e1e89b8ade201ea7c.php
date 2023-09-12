@@ -33,7 +33,24 @@
     <![endif]-->
     
     <style>
-
+        input.user:active {
+            -webkit-box-shadow: 0 0 0 30px white inset !important;
+        }
+        input.password:active{
+            -webkit-box-shadow: 0 0 0 30px white inset !important;
+        }
+        .wrappass:before {
+            content: '';
+            background: url(../../../../img/password-icon.png) no-repeat scroll 15px center;
+            position: absolute;
+            padding: 25px;
+        }
+        .wrapemail:before{
+            content: '';
+            background: url('../../../../img/user-icon.png') no-repeat left 15px center;
+            position: absolute;
+            padding: 25px;
+        }
     </style>
     
     
@@ -67,9 +84,12 @@
 
                     </div>
                 <?php endif; ?>
-				<input type="text" name="email" id="email" class="gui-input user" placeholder="Email">
-				
-				<input type="password" name="password" id="password" class="gui-input password" placeholder="Password">
+				<div class="input-wrapper wrapemail">
+				    <input type="text" name="email" id="email" class="gui-input user" placeholder="Email">
+				</div>
+				<div class="input-wrapper wrappass">
+				    <input type="password" name="password" id="password" class="gui-input password" placeholder="Password">
+				</div>
 				<input type="submit" value="sign in" class="transition" autocomplete="off">
 				<!--<div class="forgot-password"> <a href="/User/ForgotPassword">Forgot Password?</a> </div>-->
 				<div class="clear"></div>

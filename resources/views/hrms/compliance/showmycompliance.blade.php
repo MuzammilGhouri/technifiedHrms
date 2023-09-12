@@ -42,7 +42,7 @@
                         <tbody>
                             <?php $i =0;?>
                             @foreach($ticket as $value)
-                            <tr style="background: {{ now()->subDay()->gte($value->created_at) ? '#ff000070' : '' }}; color:  {{ now()->subDay()->gte($value->created_at) ? '#fff' : '' }};">
+                            <tr style="background: @if($value->status == 1) #05ae0470 @elseif(now()->subDay()->gte($value->created_at)) #ff000070 @endif ; color:  {{ now()->subDay()->gte($value->created_at) ? '#fff' : '' }};">
                                 <td scope="row">{{$i+=1}}</td>
                                 <td>{{$value->title}}</td>
                                 <td>{{$value->department->name}}</td>

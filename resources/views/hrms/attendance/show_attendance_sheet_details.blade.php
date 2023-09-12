@@ -4,6 +4,11 @@
 pre.sf-dump, pre.sf-dump .sf-dump-default {
     display: none !important;
 }
+
+.dark-theme .daterangepicker.ltr.show-calendar.opensleft {
+    background: #000;
+}
+
 </style>
 @endpush
 @section('content')
@@ -40,7 +45,7 @@ pre.sf-dump, pre.sf-dump .sf-dump-default {
                                                 {{ csrf_field() }}
                                                 <div class="col-lg-5 col-sm-6">
                                                     <div class="form-group">
-                                                        @if(Auth::user()->isHR())
+                                                        @if(Auth::user()->isHR() || Auth::user()->isCEO())
                                                         <select id="position"  class="field form-control" name="employee" style="height:100px; width: 100%">
                                                             <option>Select Employees</option>
                                                             @foreach($employees as $emp)
@@ -49,7 +54,8 @@ pre.sf-dump, pre.sf-dump .sf-dump-default {
                                                             
                                                         </select>
                                                         @else
-                                                        <select id="position"  class="field form-control" name="employee" style="height:100px; width: 100%"">
+                                                        
+                                                        <select id="position"  class="field form-control" name="employee" style="height:100px; width: 100%">
                                                             <option>Select Employees</option>
                                                             @foreach($employees as $emp)
                                                             <option value="{{$emp->name}}" <?php if($name == $emp->name){echo'selected';} if($emp->user_id == Auth::user()->id){echo'selected';}?>>{{$emp->name}}</option>
@@ -104,7 +110,7 @@ pre.sf-dump, pre.sf-dump .sf-dump-default {
                 </div>
                 @endif
                 <div>
-                    <h6 class="main-content-label mb-3">Attendance Manager Lists</h6>
+                    <h6 class="main-content-label mb-3">Attendance Management Lists</h6>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-bordered text-nowrap border-bottom mb-0 border dataTable no-footer" id="recentorders" role="grid" aria-describedby="recentorders_info">
@@ -134,7 +140,7 @@ pre.sf-dump, pre.sf-dump .sf-dump-default {
                                 <td>{{$attendance->day}}</td>
                                 <td>{{$attendance->in_time}}</td>
                                 <td>{{$attendance->out_time}}</td>
-                                <td>{{round($attendance->hours_worked,2)}}</td>
+                                <td>{{$attendance->hours_worked}}</td>
                                 <td>{{$attendance->difference}}</td>
                                 <td>{{convertAttendanceFrom($attendance->status)}}</td>
                                 <td>{{$attendance->leave_status}}</td>

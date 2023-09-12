@@ -189,7 +189,9 @@ Route::group(['middleware' => ['auth']], function ()
     Route::get('attendance-upload', ['as' => 'attendance-upload', 'uses' => 'AttendanceController@importAttendanceFile']);
 
     Route::post('attendance-upload-sheet', ['as' => 'attendance-upload-sheet', 'uses' => 'AttendanceController@uploadFile']);
-
+    
+    Route::get('employee-attendance','AttendanceController@employeeAttend')->name('employee-attendance');
+    
     Route::get('attendance-manager', ['as' => 'attendance-manager', 'uses' => 'AttendanceController@showSheetDetails']);
 
     Route::post('attendance-manager', ['as' => 'attendance-manager', 'uses' => 'AttendanceController@searchAttendance']);
@@ -251,19 +253,27 @@ Route::group(['middleware' => ['auth']], function ()
     
     Route::get('notice-detail/{id}',['as' => 'notice-detail', 'uses' => 'NotesController@detail']);
     
-    //Route For 
+    // Route For Star Performer
+    
+    Route::get('add-star-performer','StarperfomerController@index')->name('add-star-performer.star');
+    Route::post('add-star-performer','StarperfomerController@store')->name('add-star-performer.star');
+    Route::get('performanceStatus','StarperfomerController@performanceStatus')->name('performanceStatus');
+    
+    //Route For Ticket
     
     Route::get('add-compliance','ComplianceController@addCompliance')->name('add.compliance');
     Route::get('showmycompliance','ComplianceController@showMycompliance')->name('showmycompliance.compliance');
     Route::get('complianceview/{id}', 'ComplianceController@complianceview')->name('complianceview.compliance');
     Route::get('viewticket','ComplianceController@ticketView')->name('show.viewticket');
-    
     Route::post('store-compliance','ComplianceController@storeCompliance')->name('store.compiance');
     Route::post('ticketcomplete','ComplianceController@ticketcomplete')->name('ticketcomplete.compiance');
+    Route::get('all-tickets','ComplianceController@allTickets')->name('show.allTickets');
     
     
     //Route For 
-    
     Route::get('members','HomeController@teamMember')->name('team-members');
+    Route::get('member-detail/{id}','HomeController@memberDetail')->name('member-detail');
+    Route::get('member-attendance/{id}','HomeController@memberAttendance')->name('member-attendance');
+    Route::post('member-attendance/{id}', ['as' => 'member-attendance', 'uses' => 'HomeController@searchAttendance']);
     
 });

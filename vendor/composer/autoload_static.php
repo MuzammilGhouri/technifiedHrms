@@ -459,6 +459,7 @@ class ComposerStaticInit38b4cef62fd1f1d4193450f162dfbad1
     );
 
     public static $classMap = array (
+        'App\\Compliance' => __DIR__ . '/../..' . '/app/Compliance.php',
         'App\\Console\\Commands\\Inspire' => __DIR__ . '/../..' . '/app/Console/Commands/Inspire.php',
         'App\\Console\\Commands\\Wish' => __DIR__ . '/../..' . '/app/Console/Commands/Wish.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
@@ -472,6 +473,7 @@ class ComposerStaticInit38b4cef62fd1f1d4193450f162dfbad1
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
+        'App\\Http\\Controllers\\ComplianceController' => __DIR__ . '/../..' . '/app/Http/Controllers/ComplianceController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DepartmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/DepartmentController.php',
         'App\\Http\\Controllers\\EmpController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmpController.php',
@@ -535,6 +537,7 @@ class ComposerStaticInit38b4cef62fd1f1d4193450f162dfbad1
         'App\\notification\\UserNotice' => __DIR__ . '/../..' . '/app/notification/UserNotice.php',
         'App\\notification\\UserNotification' => __DIR__ . '/../..' . '/app/notification/UserNotification.php',
         'App\\notification\\notificationStatus' => __DIR__ . '/../..' . '/app/notification/notificationStatus.php',
+        'App\\starperfomer' => __DIR__ . '/../..' . '/app/starperfomer.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',

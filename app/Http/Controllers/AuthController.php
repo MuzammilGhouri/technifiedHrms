@@ -14,6 +14,7 @@
     use App\LeaveDraft;
     use App\Models\Employee;
     use App\Models\Notes;
+    use App\starperfomer;
 
     class AuthController extends Controller
     {
@@ -68,8 +69,9 @@
             $total_casual_leave = 0;
             $total_sick_leave = 0;
             $total_annual_leave = 0;
-            $notes = Notes::orderBy('id', 'DESC')->first();
-            
+            $notes = Notes::orderBy('id', 'DESC')->take(3)->get();
+            $stars = starperfomer::where('status', 1)->get();
+            // dd($notes);
             foreach($remaining_casual_leave as $leave){  
              $total_casual_leave += (int)$leave->days ;  
             }
@@ -81,7 +83,7 @@
             }
             
             
-            return view('hrms.dashboard', compact('events', 'meetings','leaves', 'total_casual_leave','total_annual_leave','total_sick_leave', 'notes'));
+            return view('hrms.dashboard', compact('events', 'meetings','leaves', 'total_casual_leave','total_annual_leave','total_sick_leave', 'notes', 'stars'));
         }
 
         public function welcome()

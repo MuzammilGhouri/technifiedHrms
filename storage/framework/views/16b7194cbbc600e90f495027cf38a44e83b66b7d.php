@@ -19,7 +19,7 @@
                                 
                                 <div class="panel-body tabs-menu-body">
                                     <div class="tab-content">
-                                        <h2>Personal Details</h2>
+                                        
                                             <div class="form-group prof-img">
                                                 <img src="<?php echo e(isset($details->photo) && ($details->photo != '') ? $details->photo : '/assets/img/avatars/profile_pic.png'); ?>" alt="">
                                             </div>
@@ -27,6 +27,9 @@
                                             <!--    <label for="photo" class="form-label tx-semibold">Photo</label>-->
                                             <!--    <input type="file" name="photo" id="photo" class="form-control">-->
                                             <!--</div>-->
+                                        <hr class="EmplHr"/>
+                                        <h2>Personal Details</h2>
+                                        <hr class="EmplHr"/>
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 <label for="code" class="form-label tx-semibold">Employee ID</label>
@@ -40,22 +43,7 @@
                                                 <label for="email" class="form-label tx-semibold">Email</label>
                                                 <input type="email" name="email" id="email" class="form-control" placeholder="<?php echo e(isset($details->user->email) ? $details->user->email:''); ?>" value="<?php echo e(isset($details->user->email) ? $details->user->email:''); ?>" readonly>
                                             </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="un_number" class="form-label tx-semibold">Account Title</label>
-                                                <input type="text" name="un_number" id="un_number" class="form-control" placeholder="<?php echo e(isset($details->un_number) ? $details->un_number:''); ?>" value="<?php echo e(isset($details->un_number) ? $details->un_number:''); ?>" readonly>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="account_number" class="form-label tx-semibold">Account Number</label>
-                                                <input type="text" name="account_number" id="account_number" class="form-control" placeholder="<?php echo e(isset($details->account_number) ? $details->account_number:''); ?>" value="<?php echo e(isset($details->account_number) ? $details->account_number:''); ?>" readonly>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="bank_name" class="form-label tx-semibold">Bank Name</label>
-                                                <input type="text" name="bank_name" id="bank_name" class="form-control" placeholder="<?php echo e(isset($details->bank_name) ? $details->bank_name:''); ?>" value="<?php echo e(isset($details->bank_name) ? $details->bank_name:''); ?>" readonly>
-                                            </div>
-                                            
-                                            
-                                            
-
+                                       
                                             <div class="form-group col-md-6">
                                                 <label for="date_of_birth" class="form-label tx-semibold">Birthday</label>
                                                 <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="<?php echo e(isset($details->date_of_birth) ? $details->date_of_birth:''); ?>" value="<?php echo e(isset($details->date_of_birth) ? $details->date_of_birth:''); ?>" readonly>
@@ -99,7 +87,7 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="designation" class="form-label tx-semibold">Designation</label>
-                                                <input type="text" name="designation" id="designation" class="form-control" placeholder="<?php echo e($details->user->role->role->name); ?>" value="<?php echo e($details->user->role->role->name); ?>" readonly>
+                                                <input type="text" name="designation" id="designation" class="form-control" placeholder="<?php echo e($details->designation); ?>" value="<?php echo e($details->designation); ?>" readonly>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="date_of_joining" class="form-label tx-semibold">Date Joined</label>
@@ -110,9 +98,26 @@
                                                 <input type="date" name="date_of_confirmation" id="date_of_confirmation" class="form-control" placeholder="<?php echo e($details->date_of_confirmation); ?>" value="<?php echo e($details->date_of_confirmation); ?>" readonly>
                                             </div>
                                         </div>
-                                        
-                                            <h2>Education History</h2>
+                                        <hr class="EmplHr"/>
+                                            <h2>Bank Details</h2>
+                                            <hr class="EmplHr"/>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="un_number" class="form-label tx-semibold">Account Title</label>
+                                                <input type="text" name="un_number" id="un_number" class="form-control" placeholder="<?php echo e(isset($details->un_number) ? $details->un_number:''); ?>" value="<?php echo e(isset($details->un_number) ? $details->un_number:''); ?>" readonly>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="account_number" class="form-label tx-semibold">Account Number</label>
+                                                <input type="text" name="account_number" id="account_number" class="form-control" placeholder="<?php echo e(isset($details->account_number) ? $details->account_number:''); ?>" value="<?php echo e(isset($details->account_number) ? $details->account_number:''); ?>" readonly>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="bank_name" class="form-label tx-semibold">Bank Name</label>
+                                                <input type="text" name="bank_name" id="bank_name" class="form-control" placeholder="<?php echo e(isset($details->bank_name) ? $details->bank_name:''); ?>" value="<?php echo e(isset($details->bank_name) ? $details->bank_name:''); ?>" readonly>
+                                            </div>
+                                        </div>    
                                             
+                                            <h2>Education History</h2>
+                                            <hr class="EmplHr"/>
                                             <?php if(count($empEducation)>0): ?>
                                                 <?php $__currentLoopData = $empEducation; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                    <div class=''>
@@ -138,7 +143,7 @@
                                                                         <input type="date" name="sch_date_of_joining[]" id="date_of_joining" class="form-control" placeholder="" value="<?php echo e($item->sch_date_of_joining); ?>" readonly>
                                                                     </div>
                                                                     <div class="form-group col-md-6">
-                                                                        <label for="date_of_confirmation" class="form-label tx-semibold">Date Confirmed</label>
+                                                                        <label for="date_of_confirmation" class="form-label tx-semibold">End Date</label>
                                                                         <input type="date" name="sch_date_of_confirmation[]" id="sch_date_of_confirmation" class="form-control" placeholder="" value="<?php echo e($item->sch_date_of_confirmation); ?>" readonly>
                                                                     </div>
                                                                 </div>
@@ -160,7 +165,7 @@
                                        
                                         
                                             <h2>Work Experience</h2>
-                                            
+                                            <hr class="EmplHr"/>
                                             <?php if(count($empExperience)>0): ?>
                                             <?php $__currentLoopData = $empExperience; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <div class=''>
@@ -185,10 +190,21 @@
                                                                 <label for="date_of_joining" class="form-label tx-semibold">Start Date</label>
                                                                 <input type="date" name="job_date_of_joining[]" id="job_date_of_joining" class="form-control" placeholder="" value="<?php echo e($val->job_date_of_joining); ?>" readonly>
                                                             </div>
-                                                            <div class="form-group col-md-6">
-                                                                <label for="date_of_confirmation" class="form-label tx-semibold">Date Confirmed</label>
-                                                                <input type="date" name="job_date_of_confirmation[]" id="job_date_of_confirmation" class="form-control" placeholder="" value="<?php echo e($val->job_date_of_confirmation); ?>" readonly>
-                                                            </div>
+                                                            <?php if($val->job_date_of_confirmation != "0000-00-00"): ?>
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="date_of_confirmation" class="form-label tx-semibold">End Date</label>
+                                                                    <input type="date" name="job_date_of_confirmation[]" id="job_date_of_confirmation" class="form-control" placeholder="" value="<?php echo e($val->job_date_of_confirmation); ?>" readonly>
+                                                                </div>
+                                                                <?php else: ?>
+                                                                <div class="form-group col-md-4">
+                                                                <div class="form-check">
+                                                                  <input class="form-check-input currentWork" type="checkbox" name="currentlyWork" value="present" id="flexCheckDefault" checked>
+                                                                  <label class="form-check-label" for="flexCheckDefault">
+                                                                    I am Currently Working In
+                                                                  </label>
+                                                                </div>
+                                                                </div>
+                                                            <?php endif; ?>
                                                         </div>
                                                         <!--<div class="form-group d-flex justify-content-end">-->
                                                         <!--    <button type="button"  class="btn btn-danger">Delete</button>-->

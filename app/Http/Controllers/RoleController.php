@@ -20,7 +20,7 @@ class RoleController extends Controller
             ->orWhere('roles.description', 'LIKE', "%$keyword%")
             ->paginate($perPage);
         }else {
-            $roles = Role::paginate(10);
+            $roles = Role::get();
         }
         return view('hrms.role.add_role',compact('roles'));
     }
@@ -47,9 +47,9 @@ class RoleController extends Controller
             ->orWhere('roles.description', 'LIKE', "%$keyword%")
             ->paginate($perPage);
         }else {
-            $roles = Role::paginate(10);
+            $roles = Role::get();
         }
-        $roles = Role::paginate(10);
+        $roles = Role::get();
         return view('hrms.role.show_role', compact('roles'));
     }
 
@@ -63,7 +63,7 @@ class RoleController extends Controller
             ->orWhere('roles.description', 'LIKE', "%$keyword%")
             ->paginate($perPage);
         }else {
-            $roles = Role::paginate(10);
+            $roles = Role::get();
         }
         return view('hrms.role.add_role', compact('result','roles'));
     }

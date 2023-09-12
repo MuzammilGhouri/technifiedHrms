@@ -79,6 +79,17 @@ class User extends Authenticatable
         }
         return false;
     }
+    
+    public function isCEO(){
+        
+        $userId = Auth::user()->id;
+        $userRole = UserRole::where('user_id',$userId)->first();
+        $rolesId =[17,18]; 
+        if(in_array($userRole->role_id,$rolesId)){
+            return true;
+        }
+        return false;
+    }
 
     public function isManager()
     {

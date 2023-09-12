@@ -59,8 +59,8 @@
                                 <td><?php echo e(isset($emp->user->role->role->name)?$emp->user->role->role->name:''); ?></td>
                                 <td><?php echo e($emp->designation); ?></td>
                                 <td>
-                                    <a href="#" class="btn ripple btn-primary btn-sm">View Detail</a>
-                                    <a href="#" class="btn ripple btn-info btn-sm">View Attendance</a>
+                                    <a href="<?php echo e(route('member-detail',['id'=>$emp->id])); ?>" class="btn ripple btn-primary btn-sm">View Detail</a>
+                                    <a href="<?php echo e(route('member-attendance',['id'=>$emp->user->id])); ?>" class="btn ripple btn-info btn-sm">View Attendance</a>
                                     <!--/delete-emp/<?php echo e($emp->id); ?>-->
                                 </td>
                             </tr>

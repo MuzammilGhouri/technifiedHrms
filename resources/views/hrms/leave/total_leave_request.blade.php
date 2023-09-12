@@ -37,7 +37,9 @@
                                             <th>HR Approval</th>
                                             <th>Manager Approval</th>
                                             <th>Team Lead Approval</th>
+                                            @if(!(\Auth::user()->isCEO()))
                                             <th>Status</th>
+                                            @endif
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -80,6 +82,7 @@
                                                     <a href="javascript:;" class="btn btn-danger btn-sm" style="margin:10px">Disapproved</a>
                                                     @endif
                                                 </td>
+                                                @if(!(\Auth::user()->isCEO()))
                                                 <td>
                                                     <div class="btn-group text-right" id="button-{{$leave->id}}">
                                                             
@@ -89,6 +92,7 @@
                                                             </a>
                                                     </div>
                                                 </td>
+                                                @endif
                                             </tr>
                                         @endforeach
      

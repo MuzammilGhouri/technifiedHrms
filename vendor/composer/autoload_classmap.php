@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Compliance' => $baseDir . '/app/Compliance.php',
     'App\\Console\\Commands\\Inspire' => $baseDir . '/app/Console/Commands/Inspire.php',
     'App\\Console\\Commands\\Wish' => $baseDir . '/app/Console/Commands/Wish.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
@@ -19,6 +20,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
+    'App\\Http\\Controllers\\ComplianceController' => $baseDir . '/app/Http/Controllers/ComplianceController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\DepartmentController' => $baseDir . '/app/Http/Controllers/DepartmentController.php',
     'App\\Http\\Controllers\\EmpController' => $baseDir . '/app/Http/Controllers/EmpController.php',
@@ -82,6 +84,7 @@ return array(
     'App\\notification\\UserNotice' => $baseDir . '/app/notification/UserNotice.php',
     'App\\notification\\UserNotification' => $baseDir . '/app/notification/UserNotification.php',
     'App\\notification\\notificationStatus' => $baseDir . '/app/notification/notificationStatus.php',
+    'App\\starperfomer' => $baseDir . '/app/starperfomer.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',

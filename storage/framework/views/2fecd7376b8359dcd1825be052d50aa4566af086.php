@@ -36,7 +36,9 @@
                                             <th>HR Approval</th>
                                             <th>Manager Approval</th>
                                             <th>Team Lead Approval</th>
+                                            <?php if(!(\Auth::user()->isCEO())): ?>
                                             <th>Status</th>
+                                            <?php endif; ?>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -79,6 +81,7 @@
                                                     <a href="javascript:;" class="btn btn-danger btn-sm" style="margin:10px">Disapproved</a>
                                                     <?php endif; ?>
                                                 </td>
+                                                <?php if(!(\Auth::user()->isCEO())): ?>
                                                 <td>
                                                     <div class="btn-group text-right" id="button-<?php echo e($leave->id); ?>">
                                                             
@@ -88,6 +91,7 @@
                                                             </a>
                                                     </div>
                                                 </td>
+                                                <?php endif; ?>
                                             </tr>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
      

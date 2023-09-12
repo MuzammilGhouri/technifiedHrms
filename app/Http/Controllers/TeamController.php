@@ -30,7 +30,6 @@ class TeamController extends Controller
         }else{
             $teams = Team::with(['employee', 'leader', 'manager'])->get();
         }
-        
         return view('hrms.team.add_team', compact('emps', 'managers','department', 'leaders','teams'));
     }
 

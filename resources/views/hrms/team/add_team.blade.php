@@ -43,7 +43,7 @@
             									<div class="col-sm-6">
             										<label class="tx-semibold">Select Team Department</label>
                                                     
-                                                        <select id="position"  class="field form-control" name="department" style="height:100px;">
+                                                        <select id="position"  class="field form-control" name="department" style="height:100px;" required>
                                                             <option value="" selected>Select One</option>
                                                             @foreach($department as $dept)
                                                                 <option value="{{$dept->id}}">{{$dept->name}}</option>
@@ -54,7 +54,7 @@
             									<div class="col-sm-6">
                                                     <label class="tx-semibold"> Select Team Leader</label>
                                                     
-                                                        <select id="position2"  class="field form-control" name="leader_id" style="height:100px;">
+                                                        <select id="position2"  class="field form-control" name="leader_id" style="height:100px;" required>
                                                             <option value="" selected>Select One</option>
                                                             @foreach($leaders as $leader)
                                                                 <option value="{{$leader->id}}">{{$leader->name}}</option>
@@ -119,6 +119,7 @@
                                 <td scope="row">{{$i+=1}}</td>
                                 <td>{{$team->name}}</td>
                                 <td>{{$team->manager->name}}</td>
+                                
                                 <td>{{$team->leader->name}}</td>
                                 <td>
                                     <div class="btn-group text-right">

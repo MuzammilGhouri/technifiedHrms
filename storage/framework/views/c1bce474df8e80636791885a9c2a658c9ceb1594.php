@@ -43,7 +43,7 @@
             									<div class="col-sm-6">
             										<label class="tx-semibold">Select Team Department</label>
                                                     
-                                                        <select id="position"  class="field form-control" name="department" style="height:100px;">
+                                                        <select id="position"  class="field form-control" name="department" style="height:100px;" required>
                                                             <option value="" selected>Select One</option>
                                                             <?php $__currentLoopData = $department; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dept): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                 <option value="<?php echo e($dept->id); ?>"><?php echo e($dept->name); ?></option>
@@ -54,7 +54,7 @@
             									<div class="col-sm-6">
                                                     <label class="tx-semibold"> Select Team Leader</label>
                                                     
-                                                        <select id="position2"  class="field form-control" name="leader_id" style="height:100px;">
+                                                        <select id="position2"  class="field form-control" name="leader_id" style="height:100px;" required>
                                                             <option value="" selected>Select One</option>
                                                             <?php $__currentLoopData = $leaders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $leader): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                 <option value="<?php echo e($leader->id); ?>"><?php echo e($leader->name); ?></option>
@@ -120,6 +120,7 @@
                                 <td scope="row"><?php echo e($i+=1); ?></td>
                                 <td><?php echo e($team->name); ?></td>
                                 <td><?php echo e($team->manager->name); ?></td>
+                                
                                 <td><?php echo e($team->leader->name); ?></td>
                                 <td>
                                     <div class="btn-group text-right">

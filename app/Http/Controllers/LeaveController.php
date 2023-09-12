@@ -266,14 +266,17 @@
         
         $keyword = $request->get('search');
         
-        if(!\Auth::user()->isHR())
+        if(!(\Auth::user()->isHR() ||  \Auth::user()->isCEO()))
         {   $employees = '';
-            $leaves = EmployeeLeaves::with('user.employee')->where('user_id', \Auth::user()->id)->orWhere('manager_id', \Auth::user()->id)->orwhere('tl_id',\Auth::user()->id)->paginate(15);
+            $leaves = EmployeeLeaves::with('user.employee')->where('user_id',$id)->paginate(15);
+            // $leaves = EmployeeLeaves::with('user.employee')->where('user_id', \Auth::user()->id)->orWhere('manager_id', \Auth::user()->id)->orwhere('tl_id',\Auth::user()->id)->paginate(15);
+            // dd($leaves);
         }
         else
         { 
             $leaves = EmployeeLeaves::with('user.employee')->where('user_id',$id)->paginate(15);
             $employees = DB::table('employees')->get();
+            
         }
     
         $column = '';
@@ -706,7 +709,7 @@
       public function leaveDistinct(Request $request){
         $keyword = $request->get('search');
         
-        if(!\Auth::user()->isHR())
+        if(!(\Auth::user()->isHR() || \Auth::user()->isCEO()))
         {   $employees = '';
             $leaves = EmployeeLeaves::with('user.employee')->where('user_id', \Auth::user()->id)->orWhere('manager_id', \Auth::user()->id)->orwhere('tl_id',\Auth::user()->id)->paginate(15);
         }
@@ -723,7 +726,7 @@
         $string = '';
         $dateFrom = '';
         $dateTo = '';
-      
+    //   dd($leaves);
       return view('hrms.leave.leave_distinct', compact('leaves', 'column','employees', 'string','dateFrom','dateTo'));
       }
   }

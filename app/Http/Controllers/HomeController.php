@@ -10,6 +10,10 @@ use DB;
 use App\EmployeeLeaves;
 use App\Models\Invoice;
 use App\Models\Employee;
+use App\Models\EmployeeEducation;
+use App\Models\EmployeeExperience;
+use App\Models\AttendanceManager;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -76,8 +80,6 @@ class HomeController extends Controller
     }
     public function allNotifi(){
         
-        
-        
         return view('hrms.notificationList');
     }
     
@@ -98,7 +100,35 @@ class HomeController extends Controller
             // dd($members);
             return view('hrms.members.index',compact('members'));
         }elseif(\Auth::user()->isteamLaad()){
+            $members = Employee::where('team_id',\Auth::user()->employee->team_id)->where('user_id','!=',\Auth::user()->id)->with('user')->get();
             
+            return view('hrms.members.index',compact('members'));
         }
     }
+    
+    public function memberDetail($id){
+        $details = Employee::where('id',$id)->first();
+        $empEducation = EmployeeEducation::where('employee_id',$details->user_id)->get();
+        $empExperience = EmployeeExperience::where('employee_id',$details->user_id)->get();
+        return view('hrms.members.details',compact('details','empEducation','empExperience'));
+    }
+    
+    public function memberAttendance($id){
+        $daterange = '';
+        $user = User::where('id',$id)->first();
+        $attendances = AttendanceManager::orderBy('id', 'desc')->where('user_id',$user->id)->get();
+        
+        return view('hrms.members.attendance',compact('attendances','user','daterange'));
+    }
+    public function searchAttendance(Request $request){
+        
+        $daterange = $request->daterange;
+        $user = User::where('id',$request->employeeId)->first(); 
+      
+        if($request->button == 'Search'){
+          $attendances = AttendanceManager::getFilterdSearchResults($request->all());
+          return view('hrms.members.attendance', compact('attendances', 'user', 'daterange'));
+        }
+    }
+    
 }

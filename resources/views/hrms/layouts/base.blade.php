@@ -29,7 +29,7 @@
 
     <style type="text/css">
         .prof-img {
-            height: 200px;
+            height: 300px;
             width: 200px;
         }
         

@@ -105,6 +105,12 @@ class ComplianceController extends Controller
         return redirect()->back();
     }
     
+    public function allTickets(){
+        $ticket = Compliance::all();
+        
+        return view('hrms.compliance.viewticket', compact('ticket'));
+    }
+    
     
     
     

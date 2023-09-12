@@ -1,30 +1,125 @@
 <?php $__env->startSection('content'); ?>
 <style>
-marquee.home_notes {
-    background: #ff4b1e;
-    color: #fff;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-}
+    marquee.home_notes {
+        background: #ff4b1e;
+        color: #fff;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .modal-body .carousel-caption {
+        top: 30% !important;
+    }
+    
+    .modal-body .carousel-caption .row {
+        padding: 0px 40px;
+    }
+    
+    .modal-body .carousel-caption .star-text {
+        font-size: 20px;
+    }
+    
+    .modal-body .carousel-caption h5 {
+        font-size: 36px;
+    }
+    
+    .modal-body .carousel-caption p {
+        font-size: 18px !important;
+    }
+    
+    .modal-body .carousel-caption .userAchiImg {
+        height: 300px;
+        width: 250px;
+    }
+    
+    .modal-body .carousel-caption .star-right {
+        padding-right: 25px;
+    }
+    
+    .starMod .modal-content {
+        background-color: transparent;
+        border: none !important;
+        box-shadow: none;
+    }
+    
+    .starMod .modal-header {
+        display: flex;
+        align-items: end;
+        justify-content: end;
+    }
+    
+    .starMod .modal-header button {
+        font-size: 20px;
+        font-weight: 800 !important;
+    }
+    
+    .starMod img {
+        border-radius: 50px;
+    }
+    
+    .starMod .stars-achieve li i {
+        font-size: 22px;
+    }
+    
+    .starMod .stars-achieve {
+        margin-top: 15px;
+    }
+
 </style>
 <!-- PAGE HEADER -->
 
-<?php if($notes): ?>
-<!--<marquee width="100%" direction="left" height="40px" class="home_notes">-->
 
-<!--    <strong><?php echo e($notes->name); ?>: </strong> <?php echo $notes->detail; ?>-->
-
-<!--</marquee>-->
+<!-- Modal -->
+<?php $__currentLoopData = $stars; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<div class="modal fade starMod" id="starModal<?php echo e($value->id); ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <!--<div class="modal-header">-->
+      <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+      <!--</div>-->
+      <div class="modal-body">
+		 <img alt="img" class="d-block w-100" src="<?php echo e(asset('img/bg-tech.jpg')); ?>">
+			<div class="carousel-caption d-none d-md-block">
+				<div class="row">
+			    <div class="col-md-6 star-left">
+			        <p class="star-text"> Employee of The Month <strong class="dot12"><?php echo e(Carbon\Carbon::parse($value->month)->format('F Y')); ?> </strong></p>
+					<h5 class="tx-semibold text-left"><?php echo e($value->user->name); ?></h5>
+					<p class=""><?php echo e($value->user->employee->designation); ?></p>
+					<?php
+                    $departName = App\Models\Department::where('id',$value->user->employee->department_id)->first();
+                    ?>
+					<p><?php echo e($departName->name); ?></p>
+					<p class="star-text"><?php echo e($value->description); ?></p>
+			        <ul class="stars-achieve">
+			            <li class="listart"><i class="fas fa-star"></i></li>
+			            <li class="listart"><i class="fas fa-star"></i></li>
+			            <li class="listart"><i class="fas fa-star"></i></li>
+			            <li class="listart"><i class="fas fa-star"></i></li>
+			            <li class="listart"><i class="fas fa-star"></i></li>
+			        </ul>       
+			    </div>
+			    <div class="col-md-6 star-right">
+			        <figure class="userAchiImg">
+			            <img src="<?php echo e(asset($value->user->employee->photo)); ?>" />
+			        </figure>
+			    </div>
+		    </div>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
 <div class="page-header">
     <div>
         <h2 class="main-content-title tx-24 mg-b-5">Dashboard</h2>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?php echo e(route('dashboard')); ?>">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-        </ol>
+        <!--<ol class="breadcrumb">-->
+        <!--    <li class="breadcrumb-item"><a href="<?php echo e(route('dashboard')); ?>">Home</a></li>-->
+        <!--    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>-->
+        <!--</ol>-->
     </div>
 </div>
 <!-- END PAGE HEADER -->
@@ -32,8 +127,8 @@ marquee.home_notes {
 
 
 <div class="row row-sm  mt-3">
-	<div class="col-12">
-		<div class="card mg-b-20 border">
+	<div class="col-7 col-sm-12 col-md-7">
+		<div class="card mg-b-20 border h-100 custard">
 			<div class="card-header p-4">
 				<div class="media">
 					
@@ -42,19 +137,74 @@ marquee.home_notes {
 					
 				</div>
 			</div>
+			<?php $__currentLoopData = $notes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $note): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 			<div class="card-body">
-				<h4 class="mg-t-0"><?php echo e($notes->name); ?></h4>
+				<h4 class="mg-t-0"><?php echo e($note->name); ?></h4>
 				
-					 <?php echo $notes->detail; ?> 
-				<span class="text-muted ms-2"><?php echo e($notes->created_at->diffForHumans()); ?></span>
+					 <?php echo $note->detail; ?> 
+				<span class="text-muted ms-2"><?php echo e($note->created_at->diffForHumans()); ?></span>
 			</div>
+			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 		</div>
 	  
 	</div>
+	<div class="col-5 col-sm-12 col-md-5">
+    	<div class="card custom-card ">
+    		<div class="card-body h-100">
+    			<div>
+    				<h6 class="main-content-label mb-1">Star Perfomance Of the Month</h6>
+    				<p class="text-muted card-sub-title">Each month, we celebrate excellence at Technifiedlabs by recognizing our 'Star Performer of the Month.' This coveted award is a testament to dedication, hard work, and outstanding contributions to our organization.</p>
+    			</div>
+    			<div class="carousel slide" data-bs-ride="carousel" id="carouselExample6">
+    				<ol class="carousel-indicators">
+    				    <?php $__currentLoopData = $stars; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    					<li class="active" data-bs-slide-to="<?php echo e($key); ?>" data-bs-target="#carouselExample6" aria-current="<?php echo e(($key == 0) ? 'true' : ''); ?>"></li>
+    					<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    				</ol>
+    				<div class="carousel-inner bg-dark">
+    				    <?php $__currentLoopData = $stars; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    					<div class="carousel-item <?php echo e(($key == 0) ? 'active' : ''); ?>"> <img alt="img" class="d-block w-100" src="<?php echo e(asset('img/bg-tech.jpg')); ?>">
+    					<a href="javascript:void(0);"  data-bs-toggle="modal" data-bs-target="#starModal<?php echo e($value->id); ?>">
+    						<div class="carousel-caption d-none d-md-block">
+    							<div class="row">
+    							    <div class="col-md-6 star-left">
+    							        <p class="star-text"> Employee of The Month <strong class="dot12"><?php echo e(Carbon\Carbon::parse($value->month)->format('F Y')); ?> </strong></p>
+            							<h5 class="tx-semibold text-left"><?php echo e($value->user->name); ?></h5>
+            							<p class=""><?php echo e($value->user->employee->designation); ?></p>
+            							<?php
+                                        $departName = App\Models\Department::where('id',$value->user->employee->department_id)->first();
+                                        ?>
+            							<p class=""><?php echo e($departName->name); ?></p>
+            							<p class="star-text"><?php echo e($value->description); ?></p>
+    							        <ul class="stars-achieve">
+    							            <li class="listart"><i class="fas fa-star"></i></li>
+    							            <li class="listart"><i class="fas fa-star"></i></li>
+    							            <li class="listart"><i class="fas fa-star"></i></li>
+    							            <li class="listart"><i class="fas fa-star"></i></li>
+    							            <li class="listart"><i class="fas fa-star"></i></li>
+    							        </ul>       
+    							    </div>
+    							    <div class="col-md-6 star-right">
+    							        <figure class="userAchiImg">
+    							            <img src="<?php echo e(asset($value->user->employee->photo)); ?>" />
+    							        </figure>
+    							    </div>
+    							</div>
+    							
+    						</div>
+    						</a>
+    					</div>
+    					<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+	
 </div>
 
 
-<?php endif; ?>
+
 
 
 <!-- ROW -->
@@ -213,26 +363,26 @@ marquee.home_notes {
                     </div> 
                     
                     
-                    <div class="col-md-4">
-                        <div class="card custom-card">
-                            <div class="card-body">
-                                <div class="card-item">
-                                    <div class="card-item-icon bg-success-transparent">
-                                        <i class="fas fa-dollar-sign"></i>
-                                    </div>
-                                    <div class="card-item-title mb-2">
+                    <!--<div class="col-md-4">-->
+                    <!--    <div class="card custom-card">-->
+                    <!--        <div class="card-body">-->
+                    <!--            <div class="card-item">-->
+                    <!--                <div class="card-item-icon bg-success-transparent">-->
+                    <!--                    <i class="fas fa-dollar-sign"></i>-->
+                    <!--                </div>-->
+                    <!--                <div class="card-item-title mb-2">-->
                                         <!--<label class="main-content-label tx-13 mb-1">EMPLOYEE MANAGER</label>-->
-                                    </div>
-                                    <div class="card-item-body">
-                                        <div class="card-item-stat">
-                                            <h4 class="font-weight-normal">PAYSLIP </h4>
-                                            <p><span class="px-1"><a href="<?php echo e(route('my-invoice')); ?>">Get Started <i class="fas fa-chevron-right"></i></a></span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!--                </div>-->
+                    <!--                <div class="card-item-body">-->
+                    <!--                    <div class="card-item-stat">-->
+                    <!--                        <h4 class="font-weight-normal">PAYSLIP </h4>-->
+                    <!--                        <p><span class="px-1"><a href="<?php echo e(route('my-invoice')); ?>">Get Started <i class="fas fa-chevron-right"></i></a></span></p>-->
+                    <!--                    </div>-->
+                    <!--                </div>-->
+                    <!--            </div>-->
+                    <!--        </div>-->
+                    <!--    </div>-->
+                    <!--</div>-->
                     
                     <?php if(Auth::user()->isHR()): ?>
                     <div class="col-md-4">

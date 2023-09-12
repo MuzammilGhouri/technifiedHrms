@@ -2,31 +2,126 @@
 
 @section('content')
 <style>
-marquee.home_notes {
-    background: #ff4b1e;
-    color: #fff;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-}
+    marquee.home_notes {
+        background: #ff4b1e;
+        color: #fff;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .modal-body .carousel-caption {
+        top: 30% !important;
+    }
+    
+    .modal-body .carousel-caption .row {
+        padding: 0px 40px;
+    }
+    
+    .modal-body .carousel-caption .star-text {
+        font-size: 20px;
+    }
+    
+    .modal-body .carousel-caption h5 {
+        font-size: 36px;
+    }
+    
+    .modal-body .carousel-caption p {
+        font-size: 18px !important;
+    }
+    
+    .modal-body .carousel-caption .userAchiImg {
+        height: 300px;
+        width: 250px;
+    }
+    
+    .modal-body .carousel-caption .star-right {
+        padding-right: 25px;
+    }
+    
+    .starMod .modal-content {
+        background-color: transparent;
+        border: none !important;
+        box-shadow: none;
+    }
+    
+    .starMod .modal-header {
+        display: flex;
+        align-items: end;
+        justify-content: end;
+    }
+    
+    .starMod .modal-header button {
+        font-size: 20px;
+        font-weight: 800 !important;
+    }
+    
+    .starMod img {
+        border-radius: 50px;
+    }
+    
+    .starMod .stars-achieve li i {
+        font-size: 22px;
+    }
+    
+    .starMod .stars-achieve {
+        margin-top: 15px;
+    }
+
 </style>
 <!-- PAGE HEADER -->
 
-@if($notes)
-<!--<marquee width="100%" direction="left" height="40px" class="home_notes">-->
 
-<!--    <strong>{{ $notes->name }}: </strong> {!! $notes->detail !!}-->
-
-<!--</marquee>-->
+<!-- Modal -->
+@foreach($stars as $key => $value)
+<div class="modal fade starMod" id="starModal{{ $value->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <!--<div class="modal-header">-->
+      <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+      <!--</div>-->
+      <div class="modal-body">
+		 <img alt="img" class="d-block w-100" src="{{asset('img/bg-tech.jpg')}}">
+			<div class="carousel-caption d-none d-md-block">
+				<div class="row">
+			    <div class="col-md-6 star-left">
+			        <p class="star-text"> Employee of The Month <strong class="dot12">{{ Carbon\Carbon::parse($value->month)->format('F Y') }} </strong></p>
+					<h5 class="tx-semibold text-left">{{$value->user->name}}</h5>
+					<p class="">{{$value->user->employee->designation}}</p>
+					@php
+                    $departName = App\Models\Department::where('id',$value->user->employee->department_id)->first();
+                    @endphp
+					<p>{{$departName->name}}</p>
+					<p class="star-text">{{ $value->description }}</p>
+			        <ul class="stars-achieve">
+			            <li class="listart"><i class="fas fa-star"></i></li>
+			            <li class="listart"><i class="fas fa-star"></i></li>
+			            <li class="listart"><i class="fas fa-star"></i></li>
+			            <li class="listart"><i class="fas fa-star"></i></li>
+			            <li class="listart"><i class="fas fa-star"></i></li>
+			        </ul>       
+			    </div>
+			    <div class="col-md-6 star-right">
+			        <figure class="userAchiImg">
+			            <img src="{{asset($value->user->employee->photo)}}" />
+			        </figure>
+			    </div>
+		    </div>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
+@endforeach
 
 
 <div class="page-header">
     <div>
         <h2 class="main-content-title tx-24 mg-b-5">Dashboard</h2>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-        </ol>
+        <!--<ol class="breadcrumb">-->
+        <!--    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>-->
+        <!--    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>-->
+        <!--</ol>-->
     </div>
 </div>
 <!-- END PAGE HEADER -->
@@ -34,8 +129,8 @@ marquee.home_notes {
 
 
 <div class="row row-sm  mt-3">
-	<div class="col-12">
-		<div class="card mg-b-20 border">
+	<div class="col-7 col-sm-12 col-md-7">
+		<div class="card mg-b-20 border h-100 custard">
 			<div class="card-header p-4">
 				<div class="media">
 					
@@ -44,19 +139,74 @@ marquee.home_notes {
 					
 				</div>
 			</div>
+			@foreach($notes as $note)
 			<div class="card-body">
-				<h4 class="mg-t-0">{{$notes->name}}</h4>
+				<h4 class="mg-t-0">{{$note->name}}</h4>
 				
-					 {!!$notes->detail!!} 
-				<span class="text-muted ms-2">{{$notes->created_at->diffForHumans()}}</span>
+					 {!!$note->detail!!} 
+				<span class="text-muted ms-2">{{$note->created_at->diffForHumans()}}</span>
 			</div>
+			@endforeach
 		</div>
 	  
 	</div>
+	<div class="col-5 col-sm-12 col-md-5">
+    	<div class="card custom-card ">
+    		<div class="card-body h-100">
+    			<div>
+    				<h6 class="main-content-label mb-1">Star Perfomance Of the Month</h6>
+    				<p class="text-muted card-sub-title">Each month, we celebrate excellence at Technifiedlabs by recognizing our 'Star Performer of the Month.' This coveted award is a testament to dedication, hard work, and outstanding contributions to our organization.</p>
+    			</div>
+    			<div class="carousel slide" data-bs-ride="carousel" id="carouselExample6">
+    				<ol class="carousel-indicators">
+    				    @foreach($stars as $key => $value)
+    					<li class="active" data-bs-slide-to="{{ $key }}" data-bs-target="#carouselExample6" aria-current="{{ ($key == 0) ? 'true' : '' }}"></li>
+    					@endforeach
+    				</ol>
+    				<div class="carousel-inner bg-dark">
+    				    @foreach($stars as $key => $value)
+    					<div class="carousel-item {{ ($key == 0) ? 'active' : '' }}"> <img alt="img" class="d-block w-100" src="{{asset('img/bg-tech.jpg')}}">
+    					<a href="javascript:void(0);"  data-bs-toggle="modal" data-bs-target="#starModal{{ $value->id }}">
+    						<div class="carousel-caption d-none d-md-block">
+    							<div class="row">
+    							    <div class="col-md-6 star-left">
+    							        <p class="star-text"> Employee of The Month <strong class="dot12">{{ Carbon\Carbon::parse($value->month)->format('F Y') }} </strong></p>
+            							<h5 class="tx-semibold text-left">{{$value->user->name}}</h5>
+            							<p class="">{{$value->user->employee->designation}}</p>
+            							@php
+                                        $departName = App\Models\Department::where('id',$value->user->employee->department_id)->first();
+                                        @endphp
+            							<p class="">{{$departName->name}}</p>
+            							<p class="star-text">{{ $value->description }}</p>
+    							        <ul class="stars-achieve">
+    							            <li class="listart"><i class="fas fa-star"></i></li>
+    							            <li class="listart"><i class="fas fa-star"></i></li>
+    							            <li class="listart"><i class="fas fa-star"></i></li>
+    							            <li class="listart"><i class="fas fa-star"></i></li>
+    							            <li class="listart"><i class="fas fa-star"></i></li>
+    							        </ul>       
+    							    </div>
+    							    <div class="col-md-6 star-right">
+    							        <figure class="userAchiImg">
+    							            <img src="{{asset($value->user->employee->photo)}}" />
+    							        </figure>
+    							    </div>
+    							</div>
+    							
+    						</div>
+    						</a>
+    					</div>
+    					@endforeach
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+	
 </div>
 
 
-@endif
+
 
 
 <!-- ROW -->
@@ -215,26 +365,26 @@ marquee.home_notes {
                     </div> 
                     
                     
-                    <div class="col-md-4">
-                        <div class="card custom-card">
-                            <div class="card-body">
-                                <div class="card-item">
-                                    <div class="card-item-icon bg-success-transparent">
-                                        <i class="fas fa-dollar-sign"></i>
-                                    </div>
-                                    <div class="card-item-title mb-2">
+                    <!--<div class="col-md-4">-->
+                    <!--    <div class="card custom-card">-->
+                    <!--        <div class="card-body">-->
+                    <!--            <div class="card-item">-->
+                    <!--                <div class="card-item-icon bg-success-transparent">-->
+                    <!--                    <i class="fas fa-dollar-sign"></i>-->
+                    <!--                </div>-->
+                    <!--                <div class="card-item-title mb-2">-->
                                         <!--<label class="main-content-label tx-13 mb-1">EMPLOYEE MANAGER</label>-->
-                                    </div>
-                                    <div class="card-item-body">
-                                        <div class="card-item-stat">
-                                            <h4 class="font-weight-normal">PAYSLIP </h4>
-                                            <p><span class="px-1"><a href="{{route('my-invoice')}}">Get Started <i class="fas fa-chevron-right"></i></a></span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!--                </div>-->
+                    <!--                <div class="card-item-body">-->
+                    <!--                    <div class="card-item-stat">-->
+                    <!--                        <h4 class="font-weight-normal">PAYSLIP </h4>-->
+                    <!--                        <p><span class="px-1"><a href="{{route('my-invoice')}}">Get Started <i class="fas fa-chevron-right"></i></a></span></p>-->
+                    <!--                    </div>-->
+                    <!--                </div>-->
+                    <!--            </div>-->
+                    <!--        </div>-->
+                    <!--    </div>-->
+                    <!--</div>-->
                     
                     @if(Auth::user()->isHR())
                     <div class="col-md-4">

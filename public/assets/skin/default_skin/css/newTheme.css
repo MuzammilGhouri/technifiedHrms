@@ -118,8 +118,8 @@ input[type="submit"] {
     outline: none;
 }
 input.password {
-    background: url('../../../../img/password-icon.png') no-repeat left 15px center;
+    /* background: url('../../../../img/password-icon.png') no-repeat left 15px center; */
 }
 input.user {
-    background: url('../../../../img/user-icon.png') no-repeat left 15px center;
+    /* background: url('../../../../img/user-icon.png') no-repeat left 15px center; */
 }

@@ -25,11 +25,45 @@
                             <span class="sidemenu-label">Dashboard</span>
                         </a>
                     </li>
-                    @if(Auth::user()->isHR())
+                    @if(Auth::user()->isHR() || Auth::user()->isCEO())
                     <li class="nav-item">
                         <a class="nav-link with-sub" href="javascript:void(0);">
-                            <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
-                                <path d="M15,13.5H8.9994507C8.7234497,13.5001831,8.4998169,13.723999,8.5,14c0.0023193,1.9320068,1.5679932,3.4976807,3.5,3.5c1.9320068-0.0023193,3.4976807-1.5679932,3.5-3.5v-0.0006104C15.4998169,13.7234497,15.276001,13.4998169,15,13.5z M12.5008545,16.4493408C11.147644,16.7259521,9.826416,15.8532104,9.5498047,14.5h4.9003906C14.2495728,15.4815674,13.4824219,16.2486572,12.5008545,16.4493408z M10.5,10c0-0.8284302-0.6715698-1.5-1.5-1.5S7.5,9.1715698,7.5,10s0.6715698,1.5,1.5,1.5C9.828064,11.4990845,10.4990845,10.828064,10.5,10z M8.5,10c0-0.276123,0.223877-0.5,0.5-0.5C9.2759399,9.5005493,9.4994507,9.7240601,9.5,10c0,0.276123-0.223877,0.5-0.5,0.5S8.5,10.276123,8.5,10z M15,8.5c-0.8284302,0-1.5,0.6715698-1.5,1.5s0.6715698,1.5,1.5,1.5c0.828064-0.0009155,1.4990845-0.671936,1.5-1.5C16.5,9.1715698,15.8284302,8.5,15,8.5z M15,10.5c-0.276123,0-0.5-0.223877-0.5-0.5s0.223877-0.5,0.5-0.5c0.2759399,0.0005493,0.4994507,0.2240601,0.5,0.5C15.5,10.276123,15.276123,10.5,15,10.5z M12,2C6.4771729,2,2,6.4771729,2,12s4.4771729,10,10,10c5.5201416-0.0064697,9.9935303-4.4798584,10-10C22,6.4771729,17.5228271,2,12,2z M12,21c-4.9705811,0-9-4.0294189-9-9s4.0294189-9,9-9c4.9683228,0.0054321,8.9945679,4.0316772,9,9C21,16.9705811,16.9705811,21,12,21z"/>
+                            <svg class="sidemenu-icon menu-icon" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.000000 512.000000"
+                             preserveAspectRatio="xMidYMid meet">
+                            
+                            <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                            fill="#fff" stroke="none">
+                            <path d="M2476 4178 c-96 -9 -210 -46 -296 -96 -80 -46 -213 -178 -259 -256
+                            -135 -228 -136 -531 -4 -755 48 -80 141 -182 206 -226 33 -23 46 -36 36 -39
+                            -82 -29 -154 -58 -199 -81 -67 -34 -212 -128 -230 -150 -7 -8 -16 -15 -21 -15
+                            -4 0 -43 25 -85 55 -67 48 -177 108 -237 129 -16 5 -8 18 55 84 148 158 199
+                            346 148 546 -125 488 -768 600 -1047 183 -70 -104 -98 -196 -97 -322 0 -171
+                            60 -312 180 -425 l62 -57 -57 -23 c-123 -50 -213 -112 -326 -225 -195 -195
+                            -288 -403 -302 -677 l-6 -118 621 0 621 0 -5 -132 c-7 -156 8 -247 58 -348 43
+                            -88 153 -197 239 -237 125 -60 98 -58 1034 -58 l860 0 71 22 c132 42 263 153
+                            325 274 49 98 62 174 57 337 l-5 142 625 0 625 0 -6 113 c-11 212 -67 377
+                            -189 554 -98 142 -281 291 -429 349 l-66 26 72 72 c115 117 169 249 169 416
+                            -1 247 -159 464 -399 546 -100 35 -244 39 -340 10 -201 -60 -363 -229 -410
+                            -428 -46 -194 9 -389 153 -539 l72 -77 -55 -22 c-68 -28 -175 -91 -233 -137
+                            -23 -19 -48 -33 -55 -30 -7 3 -47 29 -88 59 -88 63 -229 138 -309 163 -30 10
+                            -59 20 -63 22 -5 3 14 20 41 38 64 44 158 147 205 226 131 222 131 522 -1 749
+                            -48 83 -179 214 -262 262 -132 77 -292 111 -454 96z m217 -174 c206 -53 374
+                            -222 422 -425 66 -284 -91 -573 -370 -679 -82 -31 -235 -39 -325 -16 -112 28
+                            -188 72 -270 155 -122 124 -172 242 -171 404 0 169 49 285 171 408 80 81 165
+                            131 263 155 73 17 208 17 280 -2z m-1553 -366 c243 -73 370 -347 266 -573 -79
+                            -174 -262 -275 -445 -246 -229 37 -390 255 -353 477 42 253 291 414 532 342z
+                            m3070 0 c242 -73 370 -347 266 -573 -80 -175 -262 -275 -445 -246 -185 30
+                            -322 168 -353 354 -26 160 50 326 192 417 97 62 229 81 340 48z m-1447 -953
+                            c110 -21 216 -58 327 -116 288 -148 500 -413 585 -730 27 -101 50 -318 40
+                            -383 -23 -161 -94 -264 -225 -325 l-55 -26 -880 0 -880 0 -63 29 c-80 37 -161
+                            122 -193 203 -21 52 -23 73 -22 203 0 94 7 173 18 225 100 476 453 825 930
+                            921 88 17 325 17 418 -1z m-1518 -65 c91 -25 192 -73 277 -132 32 -23 58 -42
+                            58 -44 0 -2 -22 -29 -48 -61 -103 -124 -177 -257 -232 -418 l-28 -80 -552 -3
+                            -553 -2 6 50 c3 28 19 89 36 136 98 286 340 499 641 565 110 25 280 20 395
+                            -11z m3079 -5 c242 -71 432 -228 544 -450 34 -69 66 -168 76 -237 l7 -48 -558
+                            0 -559 0 -13 48 c-31 121 -135 316 -237 443 l-53 67 22 20 c80 74 249 151 384
+                            177 114 21 274 13 387 -20z"/>
+                            </g>
                             </svg>
                             <span class="sidemenu-label">Employees</span>
                             <i class="angle fe fe-chevron-right"></i>
@@ -38,9 +72,11 @@
                             <li class="side-menu-label1">
                                 <a href="javascript:void(0);">Employees</a>
                             </li>
+                            @if(Auth::user()->isHR())
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{ route('add-employee') }}">Add Employee</a>
                             </li>
+                            @endif
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{ route('employee-manager') }}">Employee Listing</a>
                             </li>
@@ -73,9 +109,11 @@
                             <li class="side-menu-label1">
                                 <a href="javascript:void(0);">Department</a>
                             </li>
+                            @if(Auth::user()->isHR())
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{ route('add-department') }}">Add Department</a>
                             </li>
+                            @endif
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{ route('depart-listing') }}">Department Listings</a>
                             </li>
@@ -91,15 +129,17 @@
                             <li class="side-menu-label1">
                                 <a href="javascript:void(0);">Teams</a>
                             </li>
+                            @if(Auth::user()->isHR())
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{ route('add-team') }}">Add Team</a>
                             </li>
+                            @endif
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{ route('team-listing') }}">Team Listings</a>
                             </li>
                         </ul>
                     </li>
-
+                    @if(Auth::user()->isHR())
                     <li class="nav-item">
                         <a class="nav-link with-sub" href="javascript:void(0);">
                             <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
@@ -112,16 +152,39 @@
                             <li class="side-menu-label1">
                                 <a href="javascript:void(0);">Roles</a>
                             </li>
+                            
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{ route('add-role') }}">Add Role</a>
                             </li>
+                            
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{ route('role-list') }}">Role Listings</a>
                             </li>
                         </ul>
                     </li>
-                    
-
+                    @endif
+                    <li class="nav-item">
+                        <a class="nav-link with-sub" href="javascript:void(0);">
+                            <svg class="sidemenu-icon menu-icon" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                            	 viewBox="0 0 473.486 473.486" xml:space="preserve">
+                            <polygon points="473.486,182.079 310.615,157.952 235.904,11.23 162.628,158.675 0,184.389 117.584,299.641 91.786,462.257 
+                            	237.732,386.042 384.416,460.829 357.032,298.473 "/>
+                            </svg>
+                            
+                            <span class="sidemenu-label">Star Performer</span>
+                            <i class="angle fe fe-chevron-right"></i>
+                        </a>
+                        <ul class="nav-sub">
+                            <li class="side-menu-label1">
+                                <a href="javascript:void(0);">Star Performer</a>
+                            </li>
+                            
+                            <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="{{ route('add-star-performer.star') }}">Add Star Performer</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
                     @endif
                     
                     @if(\Auth::user()->isManager() || \Auth::user()->isteamLaad())
@@ -147,7 +210,7 @@
                             <li class="side-menu-label1">
                                 <a href="javascript:void(0);">Notices</a>
                             </li>
-                             @if(\Auth::user()->isHR())
+                             @if(\Auth::user()->isHR() || \Auth::user()->isCEO())
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{ route('add-notice') }}">Add Notice</a>
                             </li>
@@ -167,12 +230,14 @@
                         </a>
                         <ul class="nav-sub">
                             <li class="side-menu-label1"><a href="javascript:void(0);">Leaves</a></li>
+                            @if(!(\Auth::user()->isCoordinator() || \Auth::user()->isCEO()))
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{ route('apply-leave') }}">Apply Leave</a>
                             </li>
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{ route('my-leave-list') }}">My Leave List</a>
                             </li>
+                            @endif
                             @if(\Auth::user()->isHR())
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{route('add-leave-type')}}">Add Leave Type</a>
@@ -181,7 +246,7 @@
                                 <a class="nav-sub-link" href="{{route('leave-type-listing')}}">Leave Type Listings</a>
                             </li>
                             @endif
-                            @if(Auth::user()->isHR() || Auth::user()->isCoordinator())
+                            @if(Auth::user()->isHR() || Auth::user()->isCoordinator() || Auth::user()->isCEO())
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{ route('leave-list') }}">Total Leave Listings</a>
                             </li>
@@ -200,9 +265,15 @@
                         </a>
                         <ul class="nav-sub">
                             <li class="side-menu-label1"><a href="javascript:void(0);">Attendance</a></li>
+                            @if(!(\Auth::user()->isHR() || \Auth::user()->isCEO()))
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{ route('attendance-manager') }}">Show Attendance</a>
                             </li>
+                            @else
+                            <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="{{ route('employee-attendance') }}">Show Attendance</a>
+                            </li>                            
+                            @endif
                              @if(Auth::user()->isHR())
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{ route('attendance-upload') }}">Upload Attendance</a>
@@ -211,26 +282,30 @@
                         </ul>
                     </li>
                     
-                    <li class="nav-item">
-                        <a class="nav-link with-sub" href="javascript:void(0);">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#979baf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:10px"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                            <span class="sidemenu-label">Payslip</span>
-                            <i class="angle fe fe-chevron-right"></i>
-                        </a>
-                        <ul class="nav-sub">
-                             @if(Auth::user()->isHR())
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="{{route('create-invoice')}}">Create Payslip</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="{{route('inovice-listing')}}">View Payslip</a>
-                            </li>
+                    <!--<li class="nav-item">-->
+                    <!--    <a class="nav-link with-sub" href="javascript:void(0);">-->
+                    <!--            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#979baf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:10px"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>-->
+                    <!--        <span class="sidemenu-label">Payslip</span>-->
+                    <!--        <i class="angle fe fe-chevron-right"></i>-->
+                    <!--    </a>-->
+                    <!--    <ul class="nav-sub">-->
+                            @if(Auth::user()->isHR() || Auth::user()->isCEO())
+                                @if(Auth::user()->isHR())
+                                <!--<li class="nav-sub-item">-->
+                                <!--    <a class="nav-sub-link" href="{{route('create-invoice')}}">Create Payslip</a>-->
+                                <!--</li>-->
+                                @endif
+                            <!--<li class="nav-sub-item">-->
+                            <!--    <a class="nav-sub-link" href="{{route('inovice-listing')}}">View Payslip</a>-->
+                            <!--</li>-->
                             @endif
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="{{route('my-invoice')}}">My Payslip</a>
-                            </li>
-                        </ul>
-                    </li>                    
+                            @if(!(\Auth::user()->isCEO()))
+                            <!--<li class="nav-sub-item">-->
+                            <!--    <a class="nav-sub-link" href="{{route('my-invoice')}}">My Payslip</a>-->
+                            <!--</li>-->
+                            @endif
+                    <!--    </ul>-->
+                    <!--</li>                    -->
                     <li class="nav-item">
                         <a class="nav-link with-sub" href="javascript:void(0);">
                             <svg class="settings-icon fa-spin" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#979baf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:10px" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
@@ -266,12 +341,19 @@
                             <i class="angle fe fe-chevron-right"></i>
                         </a>
                         <ul class="nav-sub">
+                            @if(!(\Auth::user()->isCEO()))
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{route('add.compliance')}}">Add Tickets</a>
                             </li>
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{route('showmycompliance.compliance')}}">My Tickets</a>
                             </li>
+                            @endif
+                            @if(Auth::user()->isHR() || Auth::user()->isCEO())
+                            <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="{{route('show.allTickets')}}">All Tickets</a>
+                            </li>                            
+                            @endif
                             @if(Auth::user()->isTicketHead())
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{route('show.viewticket')}}">Tickets</a>
